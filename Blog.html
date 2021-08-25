@@ -1,0 +1,8 @@
+<!-- sets a variable for a the 5 most recent posts of my default CMS blog -->
+{% set blog_one_posts = blog_recent_posts('default', limit=5) %}
+
+<!-- sets a variable for a the 5 most recent posts of my blog id 47082700. You can find the blog id in the URL of the blog dashboard for a particular blog-->
+{% set blog_two_posts = blog_recent_posts('47082700', limit=5) %}  
+
+<!-- combines the two variables into a single variable and sorts them by publish date. Please note the sort filter requires all three parameters -->
+{% set all_posts = (blog_one_posts + blog_two_posts) | sort(true, false, 'publish_date')  %} 
